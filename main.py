@@ -30,7 +30,7 @@ N_POINTS = 5000
 
 
 # HELIX_FREQ = scipy.constants.golden_ratio   # you can tweak this ratio
-HELIX_FREQ = 17  # you can tweak this ratio
+HELIX_FREQ = .1003033  # you can tweak this ratio
 
 LOG_SCALE = False     # toggle for log scaling on Y-axis
 
@@ -83,3 +83,55 @@ ax.legend()
 
 plt.tight_layout()
 plt.show()
+
+# Logarithmic spiral with prime angles
+fig = plt.figure(figsize=(12, 8))
+ax = fig.add_subplot(111, projection='3d')
+
+angle = n * 0.1 * math.pi
+radius = np.log(n)
+
+x = radius * np.cos(angle)
+y = radius * np.sin(angle)
+z = np.sqrt(n)  # Height shows magnitude
+
+ax.scatter(x[~primality], y[~primality], z[~primality], c='blue', alpha=0.3, s=10)
+ax.scatter(x[primality], y[primality], z[primality], c='red', marker='*', s=50)
+
+ax.set_title('Prime Angles in Logarithmic Spiral')
+ax.set_xlabel('X (Real)')
+ax.set_ylabel('Y (Imaginary)')
+ax.set_zlabel('√n (Magnitude)')
+plt.show()
+
+# Prime probability waves
+fig = plt.figure(figsize=(12, 8))
+ax = fig.add_subplot(111, projection='3d')
+
+density = np.zeros(N_POINTS-1)
+for i in range(1, N_POINTS):
+    density[i-1] = np.sum(primality[:i]) / i  # Cumulative prime density
+
+# Modular arithmetic prime clusters
+fig = plt.figure(figsize=(12, 8))
+ax = fig.add_subplot(111, projection='3d')
+
+mod_base = 30  # Highly composite number
+mod_x = n % mod_base
+mod_y = (n // mod_base) % mod_base
+z = np.log(n)
+
+# Create a color map for residue classes
+colors = np.where(primality, 'red',
+                  np.where(np.gcd(n, mod_base) > 1, 'purple', 'blue'))
+
+ax.scatter(mod_x, mod_y, z, c=colors, alpha=0.7, s=15)
+ax.scatter(mod_x[primality], mod_y[primality], z[primality],
+           c='gold', marker='*', s=100, edgecolor='black')
+
+ax.set_title(f'Prime Distribution mod {mod_base}')
+ax.set_xlabel(f'n mod {mod_base}')
+ax.set_ylabel(f'(n // {mod_base}) mod {mod_base}')
+ax.set_zlabel('log(n)')
+plt.show()
+
