@@ -7,7 +7,7 @@ import scipy
 from mpl_toolkits.mplot3d import Axes3D
 
 # Choose your universal constant
-UNIVERSAL = 360   # or math.e, or 2.71828
+UNIVERSAL = math.e
 
 class Numberspace:
     def __init__(self, B: float, C: float = UNIVERSAL):
