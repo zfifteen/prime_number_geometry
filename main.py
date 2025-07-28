@@ -1,4 +1,6 @@
 import math
+from cProfile import label
+
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy
@@ -96,7 +98,7 @@ y = radius * np.sin(angle)
 z = np.sqrt(n)  # Height shows magnitude
 
 ax.scatter(x[~primality], y[~primality], z[~primality], c='blue', alpha=0.3, s=10)
-ax.scatter(x[primality], y[primality], z[primality], c='red', marker='*', s=50)
+ax.scatter(x[primality], y[primality], z[primality], c='red', marker='*', s=50, label='Primes')
 
 ax.set_title('Prime Angles in Logarithmic Spiral')
 ax.set_xlabel('X (Real)')
@@ -127,7 +129,7 @@ colors = np.where(primality, 'red',
 
 ax.scatter(mod_x, mod_y, z, c=colors, alpha=0.7, s=15)
 ax.scatter(mod_x[primality], mod_y[primality], z[primality],
-           c='gold', marker='*', s=100, edgecolor='black')
+           c='gold', marker='*', s=100, edgecolor='black', label='Primes')
 
 ax.set_title(f'Prime Distribution mod {mod_base}')
 ax.set_xlabel(f'n mod {mod_base}')
@@ -135,3 +137,114 @@ ax.set_ylabel(f'(n // {mod_base}) mod {mod_base}')
 ax.set_zlabel('log(n)')
 plt.show()
 
+# Prime Riemann Zeta Landscape
+fig = plt.figure(figsize=(14, 10))
+ax = fig.add_subplot(111, projection='3d')
+
+# Create complex grid
+real = np.linspace(0.1, 1, 100)
+imag = np.linspace(10, 50, 100)
+Re, Im = np.meshgrid(real, imag)
+s = Re + 1j*Im
+
+# Compute zeta values
+zeta_vals = np.vectorize(scipy.special.zeta)(s)
+zeta_mag = np.abs(zeta_vals)
+
+# Plot surface
+ax.plot_surface(Re, Im, np.log(zeta_mag),
+                cmap='viridis', alpha=0.7)
+
+# Overlay primes
+prime_indices = np.where(primality)[0]
+for idx in prime_indices[:300]:  # First 300 primes
+    s_val = 0.5 + 1j * n[idx]
+    z = scipy.special.zeta(s_val)
+    ax.scatter(0.5, n[idx], np.log(np.abs(z)),
+               c='red', s=50, edgecolor='gold', label='Primes')
+
+ax.set_title('Riemann Zeta Landscape with Primes on Critical Line')
+ax.set_xlabel('Real Part')
+ax.set_ylabel('Imaginary Part')
+ax.set_zlabel('log|ζ(s)|')
+plt.show()
+
+# Prime Harmonic Interference
+fig = plt.figure(figsize=(12, 8))
+ax = fig.add_subplot(111, projection='3d')
+
+# Create interference pattern
+freq1 = math.pi
+freq2 = math.e
+harmonic = np.sin(freq1 * n) * np.cos(freq2 * n)
+
+# Prime Gaussian Spirals
+fig = plt.figure(figsize=(12, 8))
+ax = fig.add_subplot(111, projection='3d')
+
+# Gaussian prime spiral
+angles = np.cumsum(np.where(primality, math.pi/2, math.pi/8))
+radii = np.sqrt(n)
+
+x = radii * np.cos(angles)
+y = radii * np.sin(angles)
+z = np.where(primality, np.log(n), n/(N_POINTS/10))
+
+ax.scatter(x[~primality], y[~primality], z[~primality],
+           c='blue', alpha=0.4, s=15, label='Non-Primes')
+ax.scatter(x[primality], y[primality], z[primality],
+           c='red', marker='*', s=100, label='Primes')
+
+# Connect primes in sequence
+prime_mask = primality.copy()
+prime_mask[0] = False  # Skip n=1
+ax.plot(x[prime_mask], y[prime_mask], z[prime_mask],
+        'r-', alpha=0.3)
+
+ax.set_title('Gaussian Prime Spirals with Connection Lines')
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Height')
+plt.show()
+
+# Modular Prime Torus
+fig = plt.figure(figsize=(12, 10))
+ax = fig.add_subplot(111, projection='3d')
+
+# Torus parameters
+R, r = 10, 3  # Major and minor radii
+
+# Create torus coordinates
+mod1, mod2 = 17, 23  # Prime moduli
+theta = 2 * np.pi * (n % mod1) / mod1
+phi = 2 * np.pi * (n % mod2) / mod2
+
+x = (R + r * np.cos(theta)) * np.cos(phi)
+y = (R + r * np.cos(theta)) * np.sin(phi)
+z = r * np.sin(theta)
+
+# Color by residue class
+res_class = n % 6  # Mod 6 classes
+colors = np.where(primality, 'red',
+                  np.where((res_class == 1) | (res_class == 5), 'blue', 'gray'))
+
+ax.scatter(x[~primality], y[~primality], z[~primality],
+           c=colors[~primality], alpha=0.5, s=15)
+ax.scatter(x[primality], y[primality], z[primality],
+           c='gold', marker='*', s=100, edgecolor='red')
+
+# Draw torus structure
+theta_t = np.linspace(0, 2*np.pi, 100)
+phi_t = np.linspace(0, 2*np.pi, 100)
+theta_t, phi_t = np.meshgrid(theta_t, phi_t)
+x_t = (R + r * np.cos(theta_t)) * np.cos(phi_t)
+y_t = (R + r * np.cos(theta_t)) * np.sin(phi_t)
+z_t = r * np.sin(theta_t)
+ax.plot_wireframe(x_t, y_t, z_t, color='gray', alpha=0.1)
+
+ax.set_title(f'Modular Prime Torus (Residues mod {mod1} & {mod2})')
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+ax.view_init(30, 45)
+plt.show()
