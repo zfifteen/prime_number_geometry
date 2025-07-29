@@ -19,7 +19,7 @@ def generate_primes(N):
 
 # Parameters
 N = 10000  # Upper limit for n
-k = 0.5    # Scaling exponent: 1.0 for quadratic (current), 0.5 for Sacks-like sqrt(n)
+k = 0.55    # Scaling exponent: 1.0 for quadratic (current), 0.5 for Sacks-like sqrt(n)
 use_sqrt_scaling = False  # Set to True to switch to k=0.5
 if use_sqrt_scaling:
     k = 0.5
