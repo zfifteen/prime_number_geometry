@@ -1,0 +1,260 @@
+{
+  "helical": {
+    "curvature_stats": {
+      "mean": 124.20517768867394,
+      "std": 586.4323201450446,
+      "max": 9719.02915822333,
+      "min": 0.0012686846496819076
+    },
+    "torsion_stats": {
+      "mean": 0.02639095171349648,
+      "std": 114.61356577017014,
+      "max": 1172.999638152883,
+      "min": -1978.621257008973
+    },
+    "topological_invariants": {
+      "betti_0": 1,
+      "betti_1": 766,
+      "betti_2": 153,
+      "threshold_distance": 0.6768608882464536,
+      "mean_degree": 921.2605863192182
+    },
+    "fractal_dimension": 1.0,
+    "gap_correlations": {
+      "position_correlation": 0.15410615713551995,
+      "curvature_correlation": 0.12851307249521354
+    },
+    "embedding_quality": {
+      "point_density": 648.364203907832,
+      "coordinate_range": {
+        "x": [
+          -0.894811552634767,
+          0.8022803428754266
+        ],
+        "y": [
+          -0.8847871046516297,
+          0.8116541442751725
+        ],
+        "z": [
+          0.0,
+          0.999185667752443
+        ]
+      }
+    }
+  },
+  "mobius": {
+    "curvature_stats": {
+      "mean": 109546.13177444783,
+      "std": 560952.5959461436,
+      "max": 10614471.047976602,
+      "min": 2.9445659739656314e-06
+    },
+    "torsion_stats": {
+      "mean": 0.01868430224251877,
+      "std": 0.4287153401906167,
+      "max": 8.737033742817486,
+      "min": -3.525004476734606
+    },
+    "topological_invariants": {
+      "betti_0": 2,
+      "betti_1": 765,
+      "betti_2": 153,
+      "threshold_distance": 0.49580032485918885,
+      "mean_degree": 921.2491856677525
+    },
+    "fractal_dimension": 1.0,
+    "gap_correlations": {
+      "position_correlation": 0.15410615713551995,
+      "curvature_correlation": 0.06546266213179522
+    },
+    "embedding_quality": {
+      "point_density": 738.4804594060225,
+      "coordinate_range": {
+        "x": [
+          0.0,
+          1.3046137505146909
+        ],
+        "y": [
+          0.027777777777777776,
+          1.6628740603207155
+        ],
+        "z": [
+          0.0,
+          0.8448191640838065
+        ]
+      }
+    }
+  },
+  "knot": {
+    "curvature_stats": {
+      "mean": 42.84585996385711,
+      "std": 90.97768175819449,
+      "max": 824.2170359761496,
+      "min": 0.0013055006981310205
+    },
+    "torsion_stats": {
+      "mean": -1.8679752574837687,
+      "std": 97.31285704371024,
+      "max": 1373.8528966943536,
+      "min": -1305.8026552365416
+    },
+    "topological_invariants": {
+      "betti_0": 1,
+      "betti_1": 766,
+      "betti_2": 153,
+      "threshold_distance": 2.0306547202925436,
+      "mean_degree": 921.2491856677525
+    },
+    "fractal_dimension": 1.0,
+    "gap_correlations": {
+      "position_correlation": 0.15410615713551995,
+      "curvature_correlation": 0.2167967396936078
+    },
+    "embedding_quality": {
+      "point_density": 416.79527105856647,
+      "coordinate_range": {
+        "x": [
+          -1.5427234332855653,
+          1.399826937133846
+        ],
+        "y": [
+          -1.5464636886718535,
+          1.3967773488185622
+        ],
+        "z": [
+          -0.27971331009571676,
+          0.2542817105377474
+        ]
+      }
+    }
+  },
+  "hyperbolic": {
+    "curvature_stats": {
+      "mean": 6171.697702998747,
+      "std": 45248.59388620352,
+      "max": 942339.403974359,
+      "min": 1.7568429522873776e-07
+    },
+    "torsion_stats": {
+      "mean": 0.11860278884580354,
+      "std": 27.670690762461383,
+      "max": 503.3168505892325,
+      "min": -457.21986365284533
+    },
+    "topological_invariants": {
+      "betti_0": 9,
+      "betti_1": 758,
+      "betti_2": 153,
+      "threshold_distance": 34.2161173918732,
+      "mean_degree": 921.2491856677525
+    },
+    "fractal_dimension": 1.0862810404073995,
+    "gap_correlations": {
+      "position_correlation": 0.15410615713551995,
+      "curvature_correlation": -0.0031888050006423398
+    },
+    "embedding_quality": {
+      "point_density": 1.0518622942863358,
+      "coordinate_range": {
+        "x": [
+          -73.4667117029513,
+          723.7633489007414
+        ],
+        "y": [
+          -359.37164130497223,
+          32.25511327825814
+        ],
+        "z": [
+          0.02778492557740538,
+          808.0815573413104
+        ]
+      }
+    }
+  },
+  "spherical": {
+    "curvature_stats": {
+      "mean": 1.3114731358416236,
+      "std": 1.9926602024480806,
+      "max": 55.96504318365125,
+      "min": 0.4108484560239529
+    },
+    "torsion_stats": {
+      "mean": -0.014244515215463459,
+      "std": 0.35254906538231046,
+      "max": 2.069706192438948,
+      "min": -5.618919770401734
+    },
+    "topological_invariants": {
+      "betti_0": 1,
+      "betti_1": 766,
+      "betti_2": 153,
+      "threshold_distance": 2.1020971389813807,
+      "mean_degree": 921.2491856677525
+    },
+    "fractal_dimension": 1.0,
+    "gap_correlations": {
+      "position_correlation": 0.15410615713551995,
+      "curvature_correlation": 0.08697594366988574
+    },
+    "embedding_quality": {
+      "point_density": 340.0459107049433,
+      "coordinate_range": {
+        "x": [
+          -1.6981541675457488,
+          1.7194415771261924
+        ],
+        "y": [
+          -1.8090251879401043,
+          1.7594855388317892
+        ],
+        "z": [
+          -1.8517915309446256,
+          1.3221588852696344
+        ]
+      }
+    }
+  },
+  "klein": {
+    "curvature_stats": {
+      "mean": 83.17884274710325,
+      "std": 231.38735658831192,
+      "max": 2954.932017935882,
+      "min": 0.002749375830966516
+    },
+    "torsion_stats": {
+      "mean": -0.31936146452135566,
+      "std": 52.917380300693026,
+      "max": 630.800901515858,
+      "min": -1282.3184008011576
+    },
+    "topological_invariants": {
+      "betti_0": 1,
+      "betti_1": 766,
+      "betti_2": 153,
+      "threshold_distance": 2.969926308992405,
+      "mean_degree": 921.2491856677525
+    },
+    "fractal_dimension": 1.1501417057700838,
+    "gap_correlations": {
+      "position_correlation": 0.15410615713551995,
+      "curvature_correlation": 0.2004257871210086
+    },
+    "embedding_quality": {
+      "point_density": 262.22499825879413,
+      "coordinate_range": {
+        "x": [
+          -1.9593688032635166,
+          1.839338391413491
+        ],
+        "y": [
+          -2.4062445484233272,
+          2.276756722066021
+        ],
+        "z": [
+          -1.1840732949810326,
+          1.217618432635023
+        ]
+      }
+    }
+  }
+}

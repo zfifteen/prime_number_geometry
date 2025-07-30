@@ -1,0 +1,50 @@
+{
+  "helical": {
+    "mean_distance": 0.18297117074965363,
+    "std_distance": 0.15498121567240866,
+    "total_length": 224.505626509825,
+    "mean_angle": 1.967521725715034,
+    "std_angle": 1.1883175113385225,
+    "bounding_box_volume": 2.8766722186270663
+  },
+  "mobius": {
+    "mean_distance": 0.34290371787129914,
+    "std_distance": 0.29930588179853085,
+    "total_length": 420.7428618280841,
+    "mean_angle": 2.1322197027850294,
+    "std_angle": 1.3897902960367268,
+    "bounding_box_volume": 1.8021421305222796
+  },
+  "knot": {
+    "mean_distance": 0.10112552016742166,
+    "std_distance": 0.09437287924876782,
+    "total_length": 124.08101324542638,
+    "mean_angle": 1.8063366314053242,
+    "std_angle": 1.104426634786184,
+    "bounding_box_volume": 4.624735968247829
+  },
+  "hyperbolic": {
+    "mean_distance": 15.770917876426184,
+    "std_distance": 51.67621543831691,
+    "total_length": 19350.916234374927,
+    "mean_angle": 2.121848799179782,
+    "std_angle": 1.383209806434383,
+    "bounding_box_volume": 252287818.6446151
+  },
+  "spherical": {
+    "mean_distance": 1.8092932464804496,
+    "std_distance": 0.5427088806596716,
+    "total_length": 2220.0028134315116,
+    "mean_angle": 2.3976961511073553,
+    "std_angle": 0.06799382435110372,
+    "bounding_box_volume": 38.70863302456312
+  },
+  "klein": {
+    "mean_distance": 0.09163282044587283,
+    "std_distance": 0.07744788873866112,
+    "total_length": 112.43347068708596,
+    "mean_angle": 1.9469201896413657,
+    "std_angle": 1.208052661721957,
+    "bounding_box_volume": 42.72453622104837
+  }
+}
