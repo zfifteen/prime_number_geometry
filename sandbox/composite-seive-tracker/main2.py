@@ -21,6 +21,8 @@ class SegmentedSkipTracker:
 
         sqrt_limit = int(math.isqrt(self.limit))
 
+        prime_count = 0
+
         # Iterate over segments [low, high]
         for low in range(2, self.limit + 1, self.segment_size):
             high = min(self.limit, low + self.segment_size - 1)
@@ -29,8 +31,10 @@ class SegmentedSkipTracker:
             # False = unclaimed (potential prime), True = composite
             segment = bytearray(size)
 
-            # 1. Mark evens in this segment
+            # 1. Mark evens in this segment, skipping 2
             start_even = low if (low & 1) == 0 else low + 1
+            if start_even == 2:
+                start_even = 4
             for n in range(start_even, high + 1, 2):
                 segment[n - low] = 1
 
@@ -59,7 +63,11 @@ class SegmentedSkipTracker:
             # Emit unclaimed numbers as primes
             for offset, is_composite in enumerate(segment):
                 if not is_composite:
-                    yield low + offset
+                    prime = low + offset
+                    yield prime
+                    prime_count += 1
+                    if prime_count % 1000 == 0:
+                        print(f"Prime {prime_count} found, value: {prime}")
 
 
 # Example usage
