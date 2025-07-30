@@ -7,7 +7,7 @@ from scipy.interpolate import splprep, splev
 from matplotlib.colors import LogNorm
 
 # Choose your universal constant
-UNIVERSAL = math.pi  # Changed to π per README and Reissnmann's insights
+UNIVERSAL = math.pi  # Changed to π per README.md and Reissnmann's insights
 
 class Numberspace:
     def __init__(self, B: float, C: float = UNIVERSAL):
@@ -136,7 +136,7 @@ plt.show()
 fig = plt.figure(figsize=(12, 8))
 ax = fig.add_subplot(111, projection='3d')
 
-# Calculate Z-values per README formula
+# Calculate Z-values per README.md formula
 z_gap = np.zeros(len(primes))
 for i, p in enumerate(primes[1:], 1):
     gap = p - primes[i-1]
